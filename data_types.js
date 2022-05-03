@@ -12,7 +12,7 @@ const lessOrdinalNum = 1234567890123456n; //-(2^52-1)
 console.log(greaterOrdinalNum);
 console.log(-(2 ^ (52 - 1)));
 
-// Map and Filter examples
+// Map and Filter examples with Red Dead Remption 2 characters
 
 const characters = [
   {
@@ -41,22 +41,33 @@ console.log();
 
 // with filter example
 
-function isAliveCharacter(character) {
-  return character.isAlive === true;
+function isAliveCharacter(character, status) {
+  return status === "yes" ? character.isAlive === true : character.isAlive === false;
 }
 
-function isNotAliveCharacter(character) {
-  return character.isAlive === false;
-}
-
+// only name returned of maped
 function nameOfMapedCharacter(character) {
   return character.map((char) => char.name);
 }
 
-// named function callback
-const aliveCharacters = characters.filter(isAliveCharacter);
-console.log("Alive only:");
+// name and alive status returned
+function characterAliveStatusAndName(character) {
+  return character.map((char) => {
+    const info = {
+      nome: char.name,
+      isAlive: char.isAlive === true ? "alive" : "dead",
+    };
+    return info;
+  });
+}
+
+// named function callback and "yes" or "no" about alive status
+const aliveCharacters = characters.filter((char) => isAliveCharacter(char, "no"));
+
+console.log("Filtered chars:");
 console.log(nameOfMapedCharacter(aliveCharacters));
+console.log("Name and Status");
+console.log(characterAliveStatusAndName(aliveCharacters));
 console.log();
 
 // with no named function callback
