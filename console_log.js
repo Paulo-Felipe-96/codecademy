@@ -21,9 +21,13 @@ let number = [{ nome: "Paulo" }, { nome: "Suzana" }];
 let m = number.map((n) => n.nome + ` will married!`);
 console.log(m);
 
-let age = 18;
-let ofAge = age >= 18 ? "Yes" : "No";
-console.log(`You're of age? ${ofAge}`);
+let age = 11;
+
+function isOfAge(age) {
+  return age >= 18 ? "Yes" : "No";
+}
+
+console.log(`You're of age? ${isOfAge(age)}`);
 
 let undef;
 console.log(undef);
