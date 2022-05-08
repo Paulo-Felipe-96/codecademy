@@ -60,12 +60,14 @@ const Characters = (() => {
 
   // named function callback and "yes" or "no" about alive status
   const aliveCharacters = characters.filter((char) =>
-    isAliveCharacter(char, "no")
+    isAliveCharacter(char, "yes")
   );
 
   const notAliveCharacters = characters.filter(
     (character) => character.isAlive === false
   );
+
+  const anyMapedCharacter = characters.map((anyChar) => anyChar);
 
   return {
     isAliveCharacter,
@@ -74,6 +76,7 @@ const Characters = (() => {
     aliveCharacters,
     notAliveCharacters,
     characters,
+    anyMapedCharacter,
   };
 })();
 
@@ -84,6 +87,7 @@ const {
   aliveCharacters,
   notAliveCharacters,
   characters,
+  anyMapedCharacter,
 } = Characters;
 
 console.log("Filtered chars:");
@@ -98,7 +102,6 @@ console.log("Not alive only:");
 console.log(nameOfMapedCharacter(notAliveCharacters));
 console.log();
 
-const anyMapedCharacter = characters.map((anyChar) => anyChar);
 console.log("Any:");
 console.log(nameOfMapedCharacter(anyMapedCharacter));
 console.log();
